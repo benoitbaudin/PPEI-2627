@@ -1,0 +1,28 @@
+
+Ex1:
+
+echo "Annotations en 2016 :" > ../comptes.txt
+cat 2016_*.ann | wc -l >> ../comptes.txt
+echo "Annotations en 2017 :" >> ../comptes.txt
+cat 2017_*.ann | wc -l >> ../comptes.txt
+echo "Annotations en 2018 :" >> ../comptes.txt
+cat 2018_*.ann | wc -l >> ../comptes.txt
+
+Ex1.b: Pareil mais pour les lieux
+
+echo "Annotations en 2016 :" > ../locations.txt
+cat 2016_*.ann | grep "Location" | wc -l >> ../locations.txt
+echo "Annotations en 2017 :" >> ../locations.txt
+cat 2017_*.ann | grep "Location" | wc -l >> ../locations.txt
+echo "Annotations en 2018 :" >> ../locations.txt
+cat 2018_*.ann | grep "Location" | wc -l >> ../locations.txt
+
+Exo2.a
+
+cat 2016_*.ann | grep "Location" | cut -f 3 | sort | uniq -c | sort -n | tail -n 15 > ../classement_2016.txt
+cat 2017_*.ann | grep "Location" | cut -f 3 | sort | uniq -c | sort -n | tail -n 15 > ../classement_2017.txt
+cat 2018_*.ann | grep "Location" | cut -f 3 | sort | uniq -c | sort -n | tail -n 15 > ../classement_2018.txt
+
+Exo2.b
+
+cat *_07_*.ann | grep "Location" | cut -f 3 | sort | uniq -c | sort -n | tail -n 15 > ../classement_juillet.txt
